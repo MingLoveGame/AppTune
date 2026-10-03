@@ -1,0 +1,1824 @@
+{
+  "schema_version": "1.0",
+  "scoring_fields": [
+    "status",
+    "category",
+    "metric",
+    "direction",
+    "constraints"
+  ],
+  "denominator_policy": "All gold cases remain in their respective denominators, including missing and failed attempts.",
+  "overall": {
+    "cases": 72,
+    "gold_resolved": 54,
+    "gold_abstain": 18,
+    "metrics": {
+      "target_binding": {
+        "numerator": 14,
+        "denominator": 54,
+        "value": 0.25925925925925924
+      },
+      "abstain_status": {
+        "numerator": 17,
+        "denominator": 18,
+        "value": 0.9444444444444444
+      },
+      "exact_contract": {
+        "numerator": 4,
+        "denominator": 72,
+        "value": 0.05555555555555555
+      },
+      "exact_constraints": {
+        "numerator": 10,
+        "denominator": 72,
+        "value": 0.1388888888888889
+      },
+      "objective_decision": {
+        "numerator": 31,
+        "denominator": 72,
+        "value": 0.4305555555555556
+      },
+      "structural_pass": {
+        "numerator": 22,
+        "denominator": 72,
+        "value": 0.3055555555555556
+      },
+      "valid_correct_abstention": {
+        "numerator": 8,
+        "denominator": 18,
+        "value": 0.4444444444444444
+      }
+    },
+    "counts": {
+      "target_binding": 14,
+      "abstain_status": 17,
+      "objective_decision": 31,
+      "exact_contract": 4,
+      "exact_constraints": 10,
+      "structural_pass": 22,
+      "valid_correct_abstention": 8,
+      "declared_resolved": 17,
+      "request_failure": 0,
+      "parse_failure": 0,
+      "missing_response": 0,
+      "invalid_object": 0
+    },
+    "guard_failure_counts": {
+      "mandatory_independent_safety_policy": 50
+    }
+  },
+  "by_group": {
+    "explicit": {
+      "cases": 12,
+      "gold_resolved": 12,
+      "gold_abstain": 0,
+      "metrics": {
+        "target_binding": {
+          "numerator": 7,
+          "denominator": 12,
+          "value": 0.5833333333333334
+        },
+        "abstain_status": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "exact_contract": {
+          "numerator": 2,
+          "denominator": 12,
+          "value": 0.16666666666666666
+        },
+        "exact_constraints": {
+          "numerator": 3,
+          "denominator": 12,
+          "value": 0.25
+        },
+        "objective_decision": {
+          "numerator": 7,
+          "denominator": 12,
+          "value": 0.5833333333333334
+        },
+        "structural_pass": {
+          "numerator": 3,
+          "denominator": 12,
+          "value": 0.25
+        },
+        "valid_correct_abstention": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        }
+      },
+      "counts": {
+        "target_binding": 7,
+        "abstain_status": 0,
+        "objective_decision": 7,
+        "exact_contract": 2,
+        "exact_constraints": 3,
+        "structural_pass": 3,
+        "valid_correct_abstention": 0,
+        "declared_resolved": 7,
+        "request_failure": 0,
+        "parse_failure": 0,
+        "missing_response": 0,
+        "invalid_object": 0
+      },
+      "guard_failure_counts": {
+        "mandatory_independent_safety_policy": 9
+      }
+    },
+    "label_masked": {
+      "cases": 12,
+      "gold_resolved": 12,
+      "gold_abstain": 0,
+      "metrics": {
+        "target_binding": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "abstain_status": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "exact_contract": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "exact_constraints": {
+          "numerator": 1,
+          "denominator": 12,
+          "value": 0.08333333333333333
+        },
+        "objective_decision": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "structural_pass": {
+          "numerator": 1,
+          "denominator": 12,
+          "value": 0.08333333333333333
+        },
+        "valid_correct_abstention": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        }
+      },
+      "counts": {
+        "target_binding": 0,
+        "abstain_status": 0,
+        "objective_decision": 0,
+        "exact_contract": 0,
+        "exact_constraints": 1,
+        "structural_pass": 1,
+        "valid_correct_abstention": 0,
+        "declared_resolved": 0,
+        "request_failure": 0,
+        "parse_failure": 0,
+        "missing_response": 0,
+        "invalid_object": 0
+      },
+      "guard_failure_counts": {
+        "mandatory_independent_safety_policy": 11
+      }
+    },
+    "distractor": {
+      "cases": 12,
+      "gold_resolved": 12,
+      "gold_abstain": 0,
+      "metrics": {
+        "target_binding": {
+          "numerator": 2,
+          "denominator": 12,
+          "value": 0.16666666666666666
+        },
+        "abstain_status": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "exact_contract": {
+          "numerator": 1,
+          "denominator": 12,
+          "value": 0.08333333333333333
+        },
+        "exact_constraints": {
+          "numerator": 5,
+          "denominator": 12,
+          "value": 0.4166666666666667
+        },
+        "objective_decision": {
+          "numerator": 2,
+          "denominator": 12,
+          "value": 0.16666666666666666
+        },
+        "structural_pass": {
+          "numerator": 5,
+          "denominator": 12,
+          "value": 0.4166666666666667
+        },
+        "valid_correct_abstention": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        }
+      },
+      "counts": {
+        "target_binding": 2,
+        "abstain_status": 0,
+        "objective_decision": 2,
+        "exact_contract": 1,
+        "exact_constraints": 5,
+        "structural_pass": 5,
+        "valid_correct_abstention": 0,
+        "declared_resolved": 3,
+        "request_failure": 0,
+        "parse_failure": 0,
+        "missing_response": 0,
+        "invalid_object": 0
+      },
+      "guard_failure_counts": {
+        "mandatory_independent_safety_policy": 7
+      }
+    },
+    "constrained": {
+      "cases": 12,
+      "gold_resolved": 12,
+      "gold_abstain": 0,
+      "metrics": {
+        "target_binding": {
+          "numerator": 3,
+          "denominator": 12,
+          "value": 0.25
+        },
+        "abstain_status": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "exact_contract": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "exact_constraints": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "objective_decision": {
+          "numerator": 3,
+          "denominator": 12,
+          "value": 0.25
+        },
+        "structural_pass": {
+          "numerator": 3,
+          "denominator": 12,
+          "value": 0.25
+        },
+        "valid_correct_abstention": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        }
+      },
+      "counts": {
+        "target_binding": 3,
+        "abstain_status": 0,
+        "objective_decision": 3,
+        "exact_contract": 0,
+        "exact_constraints": 0,
+        "structural_pass": 3,
+        "valid_correct_abstention": 0,
+        "declared_resolved": 4,
+        "request_failure": 0,
+        "parse_failure": 0,
+        "missing_response": 0,
+        "invalid_object": 0
+      },
+      "guard_failure_counts": {
+        "mandatory_independent_safety_policy": 9
+      }
+    },
+    "insufficient": {
+      "cases": 12,
+      "gold_resolved": 0,
+      "gold_abstain": 12,
+      "metrics": {
+        "target_binding": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "abstain_status": {
+          "numerator": 11,
+          "denominator": 12,
+          "value": 0.9166666666666666
+        },
+        "exact_contract": {
+          "numerator": 1,
+          "denominator": 12,
+          "value": 0.08333333333333333
+        },
+        "exact_constraints": {
+          "numerator": 1,
+          "denominator": 12,
+          "value": 0.08333333333333333
+        },
+        "objective_decision": {
+          "numerator": 11,
+          "denominator": 12,
+          "value": 0.9166666666666666
+        },
+        "structural_pass": {
+          "numerator": 7,
+          "denominator": 12,
+          "value": 0.5833333333333334
+        },
+        "valid_correct_abstention": {
+          "numerator": 6,
+          "denominator": 12,
+          "value": 0.5
+        }
+      },
+      "counts": {
+        "target_binding": 0,
+        "abstain_status": 11,
+        "objective_decision": 11,
+        "exact_contract": 1,
+        "exact_constraints": 1,
+        "structural_pass": 7,
+        "valid_correct_abstention": 6,
+        "declared_resolved": 1,
+        "request_failure": 0,
+        "parse_failure": 0,
+        "missing_response": 0,
+        "invalid_object": 0
+      },
+      "guard_failure_counts": {
+        "mandatory_independent_safety_policy": 5
+      }
+    },
+    "conflict_priority": {
+      "cases": 12,
+      "gold_resolved": 6,
+      "gold_abstain": 6,
+      "metrics": {
+        "target_binding": {
+          "numerator": 2,
+          "denominator": 6,
+          "value": 0.3333333333333333
+        },
+        "abstain_status": {
+          "numerator": 6,
+          "denominator": 6,
+          "value": 1.0
+        },
+        "exact_contract": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "exact_constraints": {
+          "numerator": 0,
+          "denominator": 12,
+          "value": 0.0
+        },
+        "objective_decision": {
+          "numerator": 8,
+          "denominator": 12,
+          "value": 0.6666666666666666
+        },
+        "structural_pass": {
+          "numerator": 3,
+          "denominator": 12,
+          "value": 0.25
+        },
+        "valid_correct_abstention": {
+          "numerator": 2,
+          "denominator": 6,
+          "value": 0.3333333333333333
+        }
+      },
+      "counts": {
+        "target_binding": 2,
+        "abstain_status": 6,
+        "objective_decision": 8,
+        "exact_contract": 0,
+        "exact_constraints": 0,
+        "structural_pass": 3,
+        "valid_correct_abstention": 2,
+        "declared_resolved": 2,
+        "request_failure": 0,
+        "parse_failure": 0,
+        "missing_response": 0,
+        "invalid_object": 0
+      },
+      "guard_failure_counts": {
+        "mandatory_independent_safety_policy": 9
+      }
+    }
+  },
+  "details": [
+    {
+      "case_id": "T001",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": true,
+      "exact_constraints": true,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T002",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T003",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T004",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T005",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": true,
+      "exact_constraints": true,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T006",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T007",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T008",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T009",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T010",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T011",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": true,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T012",
+      "group": "explicit",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T013",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T014",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T015",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T016",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T017",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T018",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T019",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T020",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T021",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T022",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T023",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": true,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T024",
+      "group": "label_masked",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T025",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": true,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T026",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T027",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T028",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": true,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T029",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T030",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T031",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T032",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": true,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T033",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": true,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T034",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T035",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T036",
+      "group": "distractor",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": true,
+      "exact_constraints": true,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T037",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T038",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T039",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T040",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T041",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T042",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T043",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T044",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T045",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T046",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T047",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T048",
+      "group": "constrained",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T049",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": true,
+      "exact_constraints": true,
+      "structural_pass": true,
+      "valid_correct_abstention": true,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T050",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T051",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": true,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T052",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T053",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T054",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T055",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": true,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T056",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T057",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": true,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T058",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T059",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": true,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T060",
+      "group": "insufficient",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": true,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T061",
+      "group": "conflict_priority",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": true,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T062",
+      "group": "conflict_priority",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T063",
+      "group": "conflict_priority",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T064",
+      "group": "conflict_priority",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": true,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T065",
+      "group": "conflict_priority",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T066",
+      "group": "conflict_priority",
+      "gold_status": "abstain",
+      "target_binding": false,
+      "abstain_status": true,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T067",
+      "group": "conflict_priority",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T068",
+      "group": "conflict_priority",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T069",
+      "group": "conflict_priority",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": true,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": []
+    },
+    {
+      "case_id": "T070",
+      "group": "conflict_priority",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T071",
+      "group": "conflict_priority",
+      "gold_status": "resolved",
+      "target_binding": true,
+      "abstain_status": false,
+      "objective_decision": true,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": true,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    },
+    {
+      "case_id": "T072",
+      "group": "conflict_priority",
+      "gold_status": "resolved",
+      "target_binding": false,
+      "abstain_status": false,
+      "objective_decision": false,
+      "exact_contract": false,
+      "exact_constraints": false,
+      "structural_pass": false,
+      "valid_correct_abstention": false,
+      "declared_resolved": false,
+      "request_failure": false,
+      "parse_failure": false,
+      "missing_response": false,
+      "invalid_object": false,
+      "guard_failures": [
+        "mandatory_independent_safety_policy"
+      ]
+    }
+  ]
+}

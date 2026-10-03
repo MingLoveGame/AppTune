@@ -1,0 +1,293 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "id": "T001",
+      "text": "For the stadium ticket checkout run, maximize transaction throughput, measured as completed transactions per second. A transaction counts only after its purchase record has committed. Keep synchronous durability active and write barriers enabled throughout the run."
+    },
+    {
+      "id": "T002",
+      "text": "The image-metadata lookup service is ready for tuning. Synchronous durability and enabled write barriers are mandatory. Our objective is maximum request throughput in requests per second over the fixed replay interval."
+    },
+    {
+      "id": "T003",
+      "text": "Reduce the p95 response latency in milliseconds for the parcel-tracking lookup endpoint. That percentile is the tuning objective for this experiment. Every candidate must retain synchronous durability and keep write barriers on."
+    },
+    {
+      "id": "T004",
+      "text": "Keep the ad-auction store synchronously durable, with write barriers enabled. Rank configurations by p99 request latency in milliseconds, with smaller values preferred. Use the same recorded auction traffic for every configuration."
+    },
+    {
+      "id": "T005",
+      "text": "For the nightly inventory reconciliation, minimize total job completion time in seconds, from the start of the fixed input file to the final committed output. Preserve synchronous durability, and leave all write barriers enabled."
+    },
+    {
+      "id": "T006",
+      "text": "We need stable service during the sensor ingestion replay. Minimize the throughput coefficient of variation: the standard deviation divided by the mean of throughput measured in fixed one-second windows. Require synchronous durability and enabled write barriers for every trial."
+    },
+    {
+      "id": "T007",
+      "text": "Synchronous durability must stay enabled, as must write barriers. Tune the wholesale settlement database for the highest TPS, where TPS means completed settlement transactions per second. The input mix and the number of clients are fixed."
+    },
+    {
+      "id": "T008",
+      "text": "The build-artifact catalog serves a fixed mix of create and fetch operations. Maximize operations per second for this workload. Keep durability synchronous and keep write barriers enabled, including during the create operations."
+    },
+    {
+      "id": "T009",
+      "text": "During the map-tile index replay, the score is p95 lookup latency in ms and lower is better. Maintain synchronous durability; enabled write barriers are also required. Evaluate the same coordinate queries each time."
+    },
+    {
+      "id": "T010",
+      "text": "For the multiplayer session registry, our single objective is to minimize p99 latency in ms for session reads. Do so with synchronous durability in force and write barriers switched on. Session membership data must use the same replay trace."
+    },
+    {
+      "id": "T011",
+      "text": "Keep write barriers enabled and require synchronous durability while importing the fixed genome annotation bundle. The winning configuration has the shortest end-to-end completion time, measured in seconds from import start to durable publication of the entire bundle."
+    },
+    {
+      "id": "T012",
+      "text": "The replicated event archive must retain synchronous durability and enabled write barriers. Optimize stability by minimizing throughput CV, calculated as standard deviation divided by mean across fixed one-second throughput windows of the replay."
+    },
+    {
+      "id": "T013",
+      "text": "At the pharmacy dispensary, each accepted prescription generates one database transaction. Choose settings that give the largest number of completed transactions per second during the replay. Require each acknowledged commit to be synchronously durable, and keep write barriers enabled."
+    },
+    {
+      "id": "T014",
+      "text": "Our document-preview gateway receives a fixed request mix. We want the greatest count of requests handled per second. The store must keep synchronous durability turned on; its write barriers must remain enabled as well."
+    },
+    {
+      "id": "T015",
+      "text": "For each transit timetable lookup, record the response duration in milliseconds. Make the 95th percentile of those durations as small as possible. Write barriers must stay enabled, and durability must remain synchronous for the entire experiment."
+    },
+    {
+      "id": "T016",
+      "text": "Preserve synchronous durability with write barriers on while replaying the live-caption index traffic. Select the candidate with the lowest 99th-percentile request response time, expressed in milliseconds. Compare all candidates using the same requests."
+    },
+    {
+      "id": "T017",
+      "text": "A museum migration consists of the same fixed collection of records in every trial. Make the elapsed seconds from starting that collection to durably writing its last record as few as possible. Synchronous durability is required, and write barriers must remain enabled."
+    },
+    {
+      "id": "T018",
+      "text": "During the road-sensor replay, count processed operations in each fixed one-second interval. Minimize the standard deviation of those per-second counts divided by their mean. Maintain synchronous durability throughout and leave write barriers switched on."
+    },
+    {
+      "id": "T019",
+      "text": "Do not alter the bank-transfer replay contents. With synchronous durability and enabled write barriers, favor the setting that finishes the most transfer transactions each second. Only completed transactions enter this count; partially executed transfers do not."
+    },
+    {
+      "id": "T020",
+      "text": "The access-token store runs a fixed stream of issue, inspect, and revoke operations. Pick the configuration that executes the most operations in each second, averaged over the run. Keep commits synchronously durable and leave write barriers enabled."
+    },
+    {
+      "id": "T021",
+      "text": "The warehouse handhelds issue item-location requests. Lower the request-duration value in milliseconds below which 95 percent of responses fall. Keep synchronous durability enabled and write barriers on, regardless of the chosen setting."
+    },
+    {
+      "id": "T022",
+      "text": "Require synchronous durability and enabled write barriers for the emergency-dispatch directory. Order configurations by the response-duration threshold that contains 99 percent of lookup responses; measure that threshold in milliseconds and prefer the smallest value."
+    },
+    {
+      "id": "T023",
+      "text": "We will rebuild the same complete search dictionary once per trial. The desired outcome is the fewest seconds between launching the rebuild and durably publishing the finished dictionary. All trials must use synchronous durability with write barriers enabled."
+    },
+    {
+      "id": "T024",
+      "text": "For the camera-event replay, form a sequence of operation rates from fixed, non-overlapping one-second windows. Choose the smallest ratio of that sequence's standard deviation to its mean. Synchronous durability and enabled write barriers are mandatory for this experiment."
+    },
+    {
+      "id": "T025",
+      "text": "The key-value benchmark dashboard shows device IOPS, write amplification, and p99 request latency. Those are diagnostic readouts only. Rank the checkout replay by the greatest number of completed transactions per second. Preserve synchronous durability and keep write barriers enabled."
+    },
+    {
+      "id": "T026",
+      "text": "Although this test is named Latency Lab, its owner wants to maximize requests per second for the recommendation-feature store. Record p95 in milliseconds and CPU utilization for diagnosis only. Require synchronous durability and enabled write barriers."
+    },
+    {
+      "id": "T027",
+      "text": "Keep synchronous durability active and write barriers on. Last month's report emphasized transactions per second for the parts catalog; today's tuning target is the smallest p95 request latency in milliseconds. Device queue depth will remain on the monitoring page as a diagnostic."
+    },
+    {
+      "id": "T028",
+      "text": "We collect batch runtime and average latency while exercising the identity directory, but neither determines the winner. Minimize p99 lookup latency in ms. Retain synchronous durability with write barriers enabled on every candidate."
+    },
+    {
+      "id": "T029",
+      "text": "The backup-manifest rebuild is tagged Throughput Sweep in our harness. Ignore that tag when choosing the goal: minimize the full rebuild's completion time in seconds. Operation rate and cache misses are diagnostic outputs. Synchronous durability and enabled write barriers must be retained."
+    },
+    {
+      "id": "T030",
+      "text": "The weather-event replay logs p95, p99, and overall operation rate. Select configurations only by the lowest throughput coefficient of variation, defined as standard deviation divided by mean throughput in fixed one-second windows. Keep synchronous durability and enabled write barriers throughout."
+    },
+    {
+      "id": "T031",
+      "text": "Synchronous durability is mandatory, and write barriers stay enabled. The fraud-ledger workbook includes a column labeled p95_ms, but that column is for troubleshooting. Choose the configuration with maximum completed fraud-case transactions per second; the workbook column must not become the tuning objective."
+    },
+    {
+      "id": "T032",
+      "text": "The package registry report lists disk bandwidth, transaction counts, and cache-hit ratios. Our sole optimization target is operations per second for the fixed publish-and-fetch mix, with larger values preferred. Maintain synchronous durability and leave write barriers enabled."
+    },
+    {
+      "id": "T033",
+      "text": "For the harbor scheduling service, the p99 chart stays visible because the operations team uses it for diagnosis. The configuration score is instead the p95 response latency in milliseconds; minimize that score. Require synchronous durability, with write barriers enabled."
+    },
+    {
+      "id": "T034",
+      "text": "A previous capacity study maximized requests per second for this address-validation index. This experiment replaces that goal with minimizing the 99th-percentile response latency in milliseconds. Retain synchronous durability and keep write barriers on; continue logging request rate for context."
+    },
+    {
+      "id": "T035",
+      "text": "While rebuilding the fixed financial-risk graph, record per-second throughput and its fluctuations for later analysis. They are not selection criteria. Pick the shortest total completion time in seconds, from rebuild launch through final durable output. Keep synchronous durability and enabled write barriers."
+    },
+    {
+      "id": "T036",
+      "text": "In the fleet-telemetry test, device IOPS and request latency are troubleshooting counters. Reduce throughput CV as the tuning goal: standard deviation divided by mean throughput, sampled in fixed one-second windows. Maintain synchronous durability and keep write barriers enabled."
+    },
+    {
+      "id": "T037",
+      "text": "For the digital-coupon ledger, maximize completed transactions per second. Admit a candidate only if p99 response latency is at most 40 ms and every commit finishes within 0.25 s. Those are hard limits, not additional objectives. Preserve synchronous durability and enabled write barriers."
+    },
+    {
+      "id": "T038",
+      "text": "Synchronous durability and enabled write barriers are required for the media-rights lookup store. Maximize operations per second, subject to p95 response latency no greater than 0.020 s. Treat that percentile ceiling solely as a feasibility requirement."
+    },
+    {
+      "id": "T039",
+      "text": "The bus-arrival API must sustain at least 2400 requests per second. Among candidates meeting that floor, minimize p95 request latency in milliseconds. Each commit must take at most 150 ms. Retain synchronous durability and leave write barriers enabled."
+    },
+    {
+      "id": "T040",
+      "text": "Keep synchronous durability enabled and write barriers on for the reservation-status service. The objective is the lowest p99 response latency in ms. Require at least 1800 completed transactions per second and a throughput CV of at most 0.12, using standard deviation divided by mean throughput in fixed one-second windows."
+    },
+    {
+      "id": "T041",
+      "text": "For the fixed municipal-record import, shorten total completion time measured in seconds. A candidate is feasible only when each commit takes no more than 200 ms and p95 request latency stays at or below 35 ms. Require synchronous durability with write barriers enabled."
+    },
+    {
+      "id": "T042",
+      "text": "The payment-event stream must process at least 5000 operations per second and keep p99 response latency at most 60 ms. Within those hard bounds, minimize throughput CV, defined as standard deviation divided by mean throughput in fixed one-second windows. Maintain synchronous durability and enabled write barriers."
+    },
+    {
+      "id": "T043",
+      "text": "Tune the clinical-audit ledger for the largest completed transaction count per second. Enforce p95 latency of at most 18 ms, p99 latency of at most 75 ms, and a per-commit limit of 0.4 s. All three are admission limits. Synchronous durability and enabled write barriers are mandatory."
+    },
+    {
+      "id": "T044",
+      "text": "For the software-license service, keep write barriers enabled and durability synchronous. Prefer the highest requests-per-second rate. Reject candidates whose throughput CV exceeds 0.08, where CV is standard deviation divided by mean throughput in fixed one-second windows, or whose commits take more than 0.1 s."
+    },
+    {
+      "id": "T045",
+      "text": "Minimize p95 latency in milliseconds for the rail-seat lookup replay, while sustaining no fewer than 900 requests per second. The p99 latency ceiling is 0.09 s and must be treated as a hard limit. Preserve synchronous durability and keep write barriers on."
+    },
+    {
+      "id": "T046",
+      "text": "The customer-consent store requires synchronous durability and enabled write barriers. Reduce p99 request latency, measured in milliseconds. Feasibility also requires p95 latency at most 12 ms and at least 3200 operations per second; neither bound is a second ranking objective."
+    },
+    {
+      "id": "T047",
+      "text": "Choose the shortest completion time in seconds for the fixed ocean-model checkpoint merge. Require commits to finish within 0.5 s and throughput CV to remain at or below 0.20, defined from standard deviation divided by mean throughput in fixed one-second windows. Maintain synchronous durability with write barriers enabled."
+    },
+    {
+      "id": "T048",
+      "text": "For the shipping-scan event stream, require synchronous durability and enabled write barriers. Minimize the standard deviation divided by the mean of throughput in fixed one-second windows. A feasible setting must deliver at least 1250 completed transactions per second, keep p95 latency at most 22 ms, and finish every commit within 80 ms."
+    },
+    {
+      "id": "T049",
+      "text": "This experiment replays the fixed hotel-booking workload against the new storage layout. The report already contains completed transactions per second, request percentiles, and device IOPS. Keep synchronous durability and write barriers enabled. We have not selected a statistic for ranking configurations."
+    },
+    {
+      "id": "T050",
+      "text": "Make tail latency lower for the mobile-profile service, measured in milliseconds. The percentile to optimize has not been chosen yet. Retain synchronous durability and enabled write barriers, and require at least 700 requests per second."
+    },
+    {
+      "id": "T051",
+      "text": "Our goal for the restaurant-menu endpoint is the lowest arithmetic mean response latency in milliseconds across all requests. This is explicitly the mean, not a percentile. Keep synchronous durability active and write barriers enabled; every commit must finish within 0.3 s."
+    },
+    {
+      "id": "T052",
+      "text": "For the satellite-image transfer store, maximize payload bytes delivered per second. Different requests carry different amounts of data, and the byte rate is the only score. Preserve synchronous durability and leave write barriers enabled. Require p99 response latency at or below 150 ms."
+    },
+    {
+      "id": "T053",
+      "text": "Select the parcel-label configuration with the fewest joules consumed per completed transaction. That energy ratio is the sole optimization target. Synchronous durability and enabled write barriers are mandatory. The service must still sustain at least 600 completed transactions per second."
+    },
+    {
+      "id": "T054",
+      "text": "Minimize the 90th-percentile request latency in milliseconds for the visitor-badge directory. Use exactly that percentile for ranking. Maintain synchronous durability and write barriers in the enabled state; p99 latency must also stay at or below 70 ms as a hard limit."
+    },
+    {
+      "id": "T055",
+      "text": "Please improve overall performance of the irrigation-control record store. Keep synchronous durability in force and write barriers enabled. Commits may take at most 0.2 s, and p95 response latency may be no greater than 25 ms. The operator has supplied no preference among feasible configurations."
+    },
+    {
+      "id": "T056",
+      "text": "The train-position stream should minimize the raw standard deviation of throughput measured in fixed one-second windows. Do not divide by the mean; absolute dispersion is the intended score. Require synchronous durability and enabled write barriers, with at least 1500 operations per second as a hard floor."
+    },
+    {
+      "id": "T057",
+      "text": "Collect p95 and p99 request latencies in milliseconds and total job duration in seconds for the fixed election-record import. We will decide later which statistic should be optimized. For now, preserve synchronous durability and keep write barriers enabled, with each commit capped at 0.6 s."
+    },
+    {
+      "id": "T058",
+      "text": "For the cold-chain tracking API, reduce a high percentile of response latency in milliseconds. The specification does not identify which percentile. Synchronous durability and enabled write barriers must remain active. Keep the throughput coefficient of variation at most 0.15, using standard deviation divided by mean throughput in fixed one-second windows."
+    },
+    {
+      "id": "T059",
+      "text": "The vector-index replay currently records disk IOPS, queue depth, p99 latency, and cache misses. These readings are diagnostic only, and no winning criterion has been assigned. Keep synchronous durability active and write barriers enabled. The p95 latency admission ceiling is 0.030 s."
+    },
+    {
+      "id": "T060",
+      "text": "For the wildlife-sensor archive, maximize the fraction of incoming requests that succeed without retry. That success fraction is the sole score; do not rank by request rate. Preserve synchronous durability with write barriers enabled and enforce a p99 latency limit of 100 ms."
+    },
+    {
+      "id": "T061",
+      "text": "For the transit-fare ledger, maximize completed transactions per second and minimize p99 response latency in milliseconds. These objectives have equal priority, and no tie-breaking rule or combined score is provided. Keep synchronous durability and write barriers enabled; each commit must finish within 0.25 s."
+    },
+    {
+      "id": "T062",
+      "text": "The translation-memory service must reduce both p95 and p99 request latency, each measured in milliseconds. Give the two percentile objectives exactly equal weight; neither takes precedence. Retain synchronous durability and enabled write barriers, and sustain at least 1100 requests per second."
+    },
+    {
+      "id": "T063",
+      "text": "For the fixed astronomy-catalog rebuild, seek the shortest total completion time in seconds and the lowest throughput CV. CV means standard deviation divided by mean throughput in fixed one-second windows. Both goals are equally important, with no priority order. Require synchronous durability and enabled write barriers."
+    },
+    {
+      "id": "T064",
+      "text": "The fixed contract-search replay should maximize operations per second and minimize its full completion time in seconds. Treat those as equal-priority targets, even if the measured run overhead causes their rankings to differ. Preserve synchronous durability and write barriers enabled. Keep p95 latency at or below 45 ms."
+    },
+    {
+      "id": "T065",
+      "text": "The mixed benefits workload counts completed enrollment transactions separately from individual lookup operations. Maximize completed transactions per second and maximize lookup operations per second with exactly the same priority; no preferred metric is given. Keep synchronous durability and enabled write barriers, with commits taking at most 0.35 s."
+    },
+    {
+      "id": "T066",
+      "text": "We want both minimum p99 request latency in milliseconds and minimum throughput CV for the smart-meter stream. Define CV as standard deviation divided by mean throughput in fixed one-second windows. Neither goal outranks the other. Require synchronous durability and enabled write barriers, and maintain at least 2000 operations per second."
+    },
+    {
+      "id": "T067",
+      "text": "The cooperative-loan ledger used to select the lowest p99 latency. Replace that objective: the primary goal is now maximum completed transactions per second. Lower p99 latency is a secondary preference only. Retain synchronous durability and enabled write barriers; p99 must remain at or below 80 ms as a hard bound."
+    },
+    {
+      "id": "T068",
+      "text": "For the audiobook-catalog service, minimizing the replay's total duration is desirable, but subordinate. First and foremost, maximize requests per second; that is the primary tuning metric. Synchronous durability and enabled write barriers are mandatory, and every commit must finish within 120 ms."
+    },
+    {
+      "id": "T069",
+      "text": "At the public-library lookup service, our first draft proposed p99 optimization. Correction: minimize p95 response latency in milliseconds as the primary objective. We may examine p99 after selecting by p95. Preserve synchronous durability with write barriers enabled and require at least 850 requests per second."
+    },
+    {
+      "id": "T070",
+      "text": "For the air-cargo status endpoint, maximize operation rate only as a secondary preference. The primary optimization target is minimum p99 response latency in milliseconds. Require synchronous durability and enabled write barriers, and reject configurations with p95 latency above 28 ms."
+    },
+    {
+      "id": "T071",
+      "text": "The fixed archaeological-image index build should finish sooner, and smoother throughput would also help. Make the total completion time in seconds the primary metric to minimize; throughput CV is secondary. Define CV from standard deviation divided by mean throughput in fixed one-second windows. Preserve synchronous durability and enabled write barriers, with a commit ceiling of 0.45 s."
+    },
+    {
+      "id": "T072",
+      "text": "The food-delivery event ledger formerly ranked configurations by completed transactions per second. Change the primary target to minimizing throughput CV: standard deviation divided by mean throughput in fixed one-second windows. Transaction rate is now secondary, with a hard minimum of 1400 completed transactions per second. Maintain synchronous durability and enabled write barriers."
+    }
+  ]
+}

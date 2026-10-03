@@ -1,0 +1,18 @@
+Extract one application performance contract from the operator description below.
+Return exactly one JSON object and no other text. It must have exactly these seven keys:
+{"status":"resolved|abstain","category":"throughput|tail_latency|completion_time|stability|null","metric":"tps|ops_s|p95_ms|p99_ms|completion_s|throughput_cv|null","direction":"max|min|null","constraints":{},"evidence":"exact input substring","reason":"one short sentence"}
+
+Use this decision order:
+1. Copy every explicit constraint into constraints, even if status is abstain. Use only durability, barriers, commit_max_s, p95_max_ms, p99_max_ms, throughput_min, and cv_max. Do not add absent constraints. Map synchronous durability to "durability":"sync" and enabled write barriers to "barriers":"on". Numeric bounds are JSON numbers.
+2. Identify statements that rank candidate configurations. A mandatory minimum/maximum service bound is a constraint, not an objective. Workload names, hardware facts, counters, and metrics reported only for monitoring are not objectives.
+3. Resolve exactly one controlling objective when the description explicitly marks it as primary/current/sole, or when only one supported objective is present. A current replacement overrides an old objective; a diagnostic or secondary metric does not compete. Abstain if no supported objective exists, if two objectives remain equally primary without a trade-off rule, or if the requested metric/percentile is unspecified or unsupported.
+4. For resolved output, bind the controlling objective exactly:
+- completed transactions per second or TPS -> throughput, tps, max
+- completed requests/operations per second or operations/s -> throughput, ops_s, max
+- 95th-percentile request latency in milliseconds -> tail_latency, p95_ms, min
+- 99th-percentile request latency in milliseconds -> tail_latency, p99_ms, min
+- elapsed seconds for a fixed job/input -> completion_time, completion_s, min
+- standard deviation divided by mean throughput over fixed one-second windows -> stability, throughput_cv, min
+5. For abstain output, set category, metric, and direction to null.
+
+Evidence must be a nonempty exact substring of the operator description that shows the controlling objective or the reason for abstention. Do not infer unstated priorities, quantiles, units, bounds, or objectives. Do not call tools.

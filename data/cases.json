@@ -1,0 +1,1366 @@
+{
+  "schema_version": "1.0",
+  "title": "Intent Contract Benchmark",
+  "description": "72 agent-authored synthetic operator descriptions with normative reference contracts.",
+  "authoring_scope": {
+    "source_access": "The author used only the output interface specification. Evaluated prompts, predictions, prior cases, and scoring implementations were unavailable during authoring.",
+    "label_origin": "Authored normative expectations, frozen before inference.",
+    "scoring_fields": [
+      "status",
+      "category",
+      "metric",
+      "direction",
+      "constraints"
+    ],
+    "required_policy": {
+      "durability": "sync",
+      "barriers": "on"
+    }
+  },
+  "cases": [
+    {
+      "id": "T001",
+      "group": "explicit",
+      "text": "For the stadium ticket checkout run, maximize transaction throughput, measured as completed transactions per second. A transaction counts only after its purchase record has committed. Keep synchronous durability active and write barriers enabled throughout the run.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "tps",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "maximize transaction throughput, measured as completed transactions per second",
+        "reason": "Maximize completed transaction rate."
+      },
+      "rationale": "The stated objective names completed transaction rate and its maximizing direction; the commit definition adds no numeric bound."
+    },
+    {
+      "id": "T002",
+      "group": "explicit",
+      "text": "The image-metadata lookup service is ready for tuning. Synchronous durability and enabled write barriers are mandatory. Our objective is maximum request throughput in requests per second over the fixed replay interval.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "ops_s",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "maximum request throughput in requests per second",
+        "reason": "Maximize request rate."
+      },
+      "rationale": "Request throughput uses the operations/requests-per-second binding rather than completed transactions per second."
+    },
+    {
+      "id": "T003",
+      "group": "explicit",
+      "text": "Reduce the p95 response latency in milliseconds for the parcel-tracking lookup endpoint. That percentile is the tuning objective for this experiment. Every candidate must retain synchronous durability and keep write barriers on.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p95_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "Reduce the p95 response latency in milliseconds",
+        "reason": "Minimize p95 latency."
+      },
+      "rationale": "The operator explicitly selects the 95th percentile, measured in milliseconds, for minimization."
+    },
+    {
+      "id": "T004",
+      "group": "explicit",
+      "text": "Keep the ad-auction store synchronously durable, with write barriers enabled. Rank configurations by p99 request latency in milliseconds, with smaller values preferred. Use the same recorded auction traffic for every configuration.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p99_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "p99 request latency in milliseconds, with smaller values preferred",
+        "reason": "Minimize p99 latency."
+      },
+      "rationale": "The explicit p99 latency ranking maps to the p99 millisecond metric with a minimizing direction."
+    },
+    {
+      "id": "T005",
+      "group": "explicit",
+      "text": "For the nightly inventory reconciliation, minimize total job completion time in seconds, from the start of the fixed input file to the final committed output. Preserve synchronous durability, and leave all write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "completion_time",
+        "metric": "completion_s",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "minimize total job completion time in seconds",
+        "reason": "Minimize complete job runtime."
+      },
+      "rationale": "A fixed job's complete elapsed runtime in seconds is the completion-time objective."
+    },
+    {
+      "id": "T006",
+      "group": "explicit",
+      "text": "We need stable service during the sensor ingestion replay. Minimize the throughput coefficient of variation: the standard deviation divided by the mean of throughput measured in fixed one-second windows. Require synchronous durability and enabled write barriers for every trial.",
+      "gold": {
+        "status": "resolved",
+        "category": "stability",
+        "metric": "throughput_cv",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "Minimize the throughput coefficient of variation: the standard deviation divided by the mean of throughput measured in fixed one-second windows",
+        "reason": "Minimize throughput CV."
+      },
+      "rationale": "The objective explicitly defines throughput CV, including the fixed one-second aggregation window."
+    },
+    {
+      "id": "T007",
+      "group": "explicit",
+      "text": "Synchronous durability must stay enabled, as must write barriers. Tune the wholesale settlement database for the highest TPS, where TPS means completed settlement transactions per second. The input mix and the number of clients are fixed.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "tps",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the highest TPS, where TPS means completed settlement transactions per second",
+        "reason": "Maximize TPS."
+      },
+      "rationale": "TPS is unambiguously defined as completed transactions per second and is to be maximized."
+    },
+    {
+      "id": "T008",
+      "group": "explicit",
+      "text": "The build-artifact catalog serves a fixed mix of create and fetch operations. Maximize operations per second for this workload. Keep durability synchronous and keep write barriers enabled, including during the create operations.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "ops_s",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "Maximize operations per second",
+        "reason": "Maximize operation rate."
+      },
+      "rationale": "The requested rate counts operations, with no transaction-rate objective stated."
+    },
+    {
+      "id": "T009",
+      "group": "explicit",
+      "text": "During the map-tile index replay, the score is p95 lookup latency in ms and lower is better. Maintain synchronous durability; enabled write barriers are also required. Evaluate the same coordinate queries each time.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p95_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "p95 lookup latency in ms and lower is better",
+        "reason": "Minimize p95 latency."
+      },
+      "rationale": "The score directly identifies p95 latency in milliseconds and its preferred direction."
+    },
+    {
+      "id": "T010",
+      "group": "explicit",
+      "text": "For the multiplayer session registry, our single objective is to minimize p99 latency in ms for session reads. Do so with synchronous durability in force and write barriers switched on. Session membership data must use the same replay trace.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p99_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "minimize p99 latency in ms for session reads",
+        "reason": "Minimize p99 latency."
+      },
+      "rationale": "The sole target is the explicitly specified 99th-percentile read latency."
+    },
+    {
+      "id": "T011",
+      "group": "explicit",
+      "text": "Keep write barriers enabled and require synchronous durability while importing the fixed genome annotation bundle. The winning configuration has the shortest end-to-end completion time, measured in seconds from import start to durable publication of the entire bundle.",
+      "gold": {
+        "status": "resolved",
+        "category": "completion_time",
+        "metric": "completion_s",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the shortest end-to-end completion time, measured in seconds",
+        "reason": "Minimize import completion time."
+      },
+      "rationale": "The metric covers a bounded import's whole runtime, not a request latency percentile."
+    },
+    {
+      "id": "T012",
+      "group": "explicit",
+      "text": "The replicated event archive must retain synchronous durability and enabled write barriers. Optimize stability by minimizing throughput CV, calculated as standard deviation divided by mean across fixed one-second throughput windows of the replay.",
+      "gold": {
+        "status": "resolved",
+        "category": "stability",
+        "metric": "throughput_cv",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "minimizing throughput CV, calculated as standard deviation divided by mean across fixed one-second throughput windows",
+        "reason": "Minimize throughput CV."
+      },
+      "rationale": "The defined dispersion objective is exactly the supported throughput coefficient of variation."
+    },
+    {
+      "id": "T013",
+      "group": "label_masked",
+      "text": "At the pharmacy dispensary, each accepted prescription generates one database transaction. Choose settings that give the largest number of completed transactions per second during the replay. Require each acknowledged commit to be synchronously durable, and keep write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "tps",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the largest number of completed transactions per second",
+        "reason": "Maximize completed transaction rate."
+      },
+      "rationale": "The description gives the transaction-rate definition without a canonical category or metric label."
+    },
+    {
+      "id": "T014",
+      "group": "label_masked",
+      "text": "Our document-preview gateway receives a fixed request mix. We want the greatest count of requests handled per second. The store must keep synchronous durability turned on; its write barriers must remain enabled as well.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "ops_s",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the greatest count of requests handled per second",
+        "reason": "Maximize request rate."
+      },
+      "rationale": "Requests handled per second identifies the operations-rate binding despite absent shorthand labels."
+    },
+    {
+      "id": "T015",
+      "group": "label_masked",
+      "text": "For each transit timetable lookup, record the response duration in milliseconds. Make the 95th percentile of those durations as small as possible. Write barriers must stay enabled, and durability must remain synchronous for the entire experiment.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p95_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "Make the 95th percentile of those durations as small as possible",
+        "reason": "Minimize the 95th percentile."
+      },
+      "rationale": "The request-duration unit and explicitly selected 95th percentile determine the supported latency metric."
+    },
+    {
+      "id": "T016",
+      "group": "label_masked",
+      "text": "Preserve synchronous durability with write barriers on while replaying the live-caption index traffic. Select the candidate with the lowest 99th-percentile request response time, expressed in milliseconds. Compare all candidates using the same requests.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p99_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the lowest 99th-percentile request response time, expressed in milliseconds",
+        "reason": "Minimize the 99th percentile."
+      },
+      "rationale": "The spelled-out percentile and unit identify p99 latency without a schema-style metric name."
+    },
+    {
+      "id": "T017",
+      "group": "label_masked",
+      "text": "A museum migration consists of the same fixed collection of records in every trial. Make the elapsed seconds from starting that collection to durably writing its last record as few as possible. Synchronous durability is required, and write barriers must remain enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "completion_time",
+        "metric": "completion_s",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "Make the elapsed seconds from starting that collection to durably writing its last record as few as possible",
+        "reason": "Minimize elapsed job seconds."
+      },
+      "rationale": "The finite collection's start-to-finish elapsed seconds define the whole-job completion metric."
+    },
+    {
+      "id": "T018",
+      "group": "label_masked",
+      "text": "During the road-sensor replay, count processed operations in each fixed one-second interval. Minimize the standard deviation of those per-second counts divided by their mean. Maintain synchronous durability throughout and leave write barriers switched on.",
+      "gold": {
+        "status": "resolved",
+        "category": "stability",
+        "metric": "throughput_cv",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "Minimize the standard deviation of those per-second counts divided by their mean",
+        "reason": "Minimize relative throughput dispersion."
+      },
+      "rationale": "Per-second counts in fixed one-second intervals are throughput samples; the stated ratio is throughput CV."
+    },
+    {
+      "id": "T019",
+      "group": "label_masked",
+      "text": "Do not alter the bank-transfer replay contents. With synchronous durability and enabled write barriers, favor the setting that finishes the most transfer transactions each second. Only completed transactions enter this count; partially executed transfers do not.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "tps",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "finishes the most transfer transactions each second",
+        "reason": "Maximize completed transaction rate."
+      },
+      "rationale": "The count is explicitly restricted to completed transactions per second."
+    },
+    {
+      "id": "T020",
+      "group": "label_masked",
+      "text": "The access-token store runs a fixed stream of issue, inspect, and revoke operations. Pick the configuration that executes the most operations in each second, averaged over the run. Keep commits synchronously durable and leave write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "ops_s",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "executes the most operations in each second, averaged over the run",
+        "reason": "Maximize operation rate."
+      },
+      "rationale": "The ranking target is an operation count per unit second, not a latency or variability statistic."
+    },
+    {
+      "id": "T021",
+      "group": "label_masked",
+      "text": "The warehouse handhelds issue item-location requests. Lower the request-duration value in milliseconds below which 95 percent of responses fall. Keep synchronous durability enabled and write barriers on, regardless of the chosen setting.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p95_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "Lower the request-duration value in milliseconds below which 95 percent of responses fall",
+        "reason": "Minimize the 95th percentile."
+      },
+      "rationale": "The percentile definition supplies the 95th-percentile millisecond latency objective."
+    },
+    {
+      "id": "T022",
+      "group": "label_masked",
+      "text": "Require synchronous durability and enabled write barriers for the emergency-dispatch directory. Order configurations by the response-duration threshold that contains 99 percent of lookup responses; measure that threshold in milliseconds and prefer the smallest value.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p99_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the response-duration threshold that contains 99 percent of lookup responses; measure that threshold in milliseconds and prefer the smallest value",
+        "reason": "Minimize the 99th percentile."
+      },
+      "rationale": "The description defines the 99th-percentile latency threshold and explicitly minimizes it."
+    },
+    {
+      "id": "T023",
+      "group": "label_masked",
+      "text": "We will rebuild the same complete search dictionary once per trial. The desired outcome is the fewest seconds between launching the rebuild and durably publishing the finished dictionary. All trials must use synchronous durability with write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "completion_time",
+        "metric": "completion_s",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the fewest seconds between launching the rebuild and durably publishing the finished dictionary",
+        "reason": "Minimize elapsed rebuild time."
+      },
+      "rationale": "A fixed rebuild's elapsed start-to-finish seconds identify whole-job completion time."
+    },
+    {
+      "id": "T024",
+      "group": "label_masked",
+      "text": "For the camera-event replay, form a sequence of operation rates from fixed, non-overlapping one-second windows. Choose the smallest ratio of that sequence's standard deviation to its mean. Synchronous durability and enabled write barriers are mandatory for this experiment.",
+      "gold": {
+        "status": "resolved",
+        "category": "stability",
+        "metric": "throughput_cv",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the smallest ratio of that sequence's standard deviation to its mean",
+        "reason": "Minimize relative throughput dispersion."
+      },
+      "rationale": "The explicitly defined relative dispersion of one-second throughput samples is the supported CV metric."
+    },
+    {
+      "id": "T025",
+      "group": "distractor",
+      "text": "The key-value benchmark dashboard shows device IOPS, write amplification, and p99 request latency. Those are diagnostic readouts only. Rank the checkout replay by the greatest number of completed transactions per second. Preserve synchronous durability and keep write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "tps",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the greatest number of completed transactions per second",
+        "reason": "Transaction rate is the ranking target."
+      },
+      "rationale": "The operator explicitly demotes storage counters and p99 to diagnostics and selects completed transaction throughput."
+    },
+    {
+      "id": "T026",
+      "group": "distractor",
+      "text": "Although this test is named Latency Lab, its owner wants to maximize requests per second for the recommendation-feature store. Record p95 in milliseconds and CPU utilization for diagnosis only. Require synchronous durability and enabled write barriers.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "ops_s",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "maximize requests per second",
+        "reason": "Request rate is the objective."
+      },
+      "rationale": "A benchmark title and recorded latency statistic do not override the explicit request-rate objective."
+    },
+    {
+      "id": "T027",
+      "group": "distractor",
+      "text": "Keep synchronous durability active and write barriers on. Last month's report emphasized transactions per second for the parts catalog; today's tuning target is the smallest p95 request latency in milliseconds. Device queue depth will remain on the monitoring page as a diagnostic.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p95_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "today's tuning target is the smallest p95 request latency in milliseconds",
+        "reason": "Current objective is p95 latency."
+      },
+      "rationale": "The current explicit target supersedes a historical transaction-rate emphasis and an unrelated counter."
+    },
+    {
+      "id": "T028",
+      "group": "distractor",
+      "text": "We collect batch runtime and average latency while exercising the identity directory, but neither determines the winner. Minimize p99 lookup latency in ms. Retain synchronous durability with write barriers enabled on every candidate.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p99_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "Minimize p99 lookup latency in ms",
+        "reason": "p99 latency determines the winner."
+      },
+      "rationale": "The operator excludes runtime and average latency from ranking, leaving the explicit p99 objective."
+    },
+    {
+      "id": "T029",
+      "group": "distractor",
+      "text": "The backup-manifest rebuild is tagged Throughput Sweep in our harness. Ignore that tag when choosing the goal: minimize the full rebuild's completion time in seconds. Operation rate and cache misses are diagnostic outputs. Synchronous durability and enabled write barriers must be retained.",
+      "gold": {
+        "status": "resolved",
+        "category": "completion_time",
+        "metric": "completion_s",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "minimize the full rebuild's completion time in seconds",
+        "reason": "Minimize full rebuild runtime."
+      },
+      "rationale": "A harness tag and counters do not change the expressly selected fixed-job completion objective."
+    },
+    {
+      "id": "T030",
+      "group": "distractor",
+      "text": "The weather-event replay logs p95, p99, and overall operation rate. Select configurations only by the lowest throughput coefficient of variation, defined as standard deviation divided by mean throughput in fixed one-second windows. Keep synchronous durability and enabled write barriers throughout.",
+      "gold": {
+        "status": "resolved",
+        "category": "stability",
+        "metric": "throughput_cv",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the lowest throughput coefficient of variation, defined as standard deviation divided by mean throughput in fixed one-second windows",
+        "reason": "Throughput CV alone determines rank."
+      },
+      "rationale": "Logged latency percentiles and total rate are diagnostics; the sole ranking statistic is fully defined throughput CV."
+    },
+    {
+      "id": "T031",
+      "group": "distractor",
+      "text": "Synchronous durability is mandatory, and write barriers stay enabled. The fraud-ledger workbook includes a column labeled p95_ms, but that column is for troubleshooting. Choose the configuration with maximum completed fraud-case transactions per second; the workbook column must not become the tuning objective.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "tps",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "maximum completed fraud-case transactions per second",
+        "reason": "Maximize completed transaction rate."
+      },
+      "rationale": "The explicit transaction-rate objective overrides a distracting schema-style latency label."
+    },
+    {
+      "id": "T032",
+      "group": "distractor",
+      "text": "The package registry report lists disk bandwidth, transaction counts, and cache-hit ratios. Our sole optimization target is operations per second for the fixed publish-and-fetch mix, with larger values preferred. Maintain synchronous durability and leave write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "ops_s",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "operations per second for the fixed publish-and-fetch mix, with larger values preferred",
+        "reason": "Maximize operation rate."
+      },
+      "rationale": "The named optimization target is operation rate; unrelated storage statistics and transaction counts are not objectives."
+    },
+    {
+      "id": "T033",
+      "group": "distractor",
+      "text": "For the harbor scheduling service, the p99 chart stays visible because the operations team uses it for diagnosis. The configuration score is instead the p95 response latency in milliseconds; minimize that score. Require synchronous durability, with write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p95_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the p95 response latency in milliseconds; minimize that score",
+        "reason": "Minimize the selected p95 score."
+      },
+      "rationale": "The operator selects p95 as the score while expressly identifying p99 as a diagnostic chart."
+    },
+    {
+      "id": "T034",
+      "group": "distractor",
+      "text": "A previous capacity study maximized requests per second for this address-validation index. This experiment replaces that goal with minimizing the 99th-percentile response latency in milliseconds. Retain synchronous durability and keep write barriers on; continue logging request rate for context.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p99_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "minimizing the 99th-percentile response latency in milliseconds",
+        "reason": "Minimize current p99 target."
+      },
+      "rationale": "The new explicit p99 target supersedes the previous study's request-rate objective."
+    },
+    {
+      "id": "T035",
+      "group": "distractor",
+      "text": "While rebuilding the fixed financial-risk graph, record per-second throughput and its fluctuations for later analysis. They are not selection criteria. Pick the shortest total completion time in seconds, from rebuild launch through final durable output. Keep synchronous durability and enabled write barriers.",
+      "gold": {
+        "status": "resolved",
+        "category": "completion_time",
+        "metric": "completion_s",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "the shortest total completion time in seconds",
+        "reason": "Minimize whole-job completion time."
+      },
+      "rationale": "A whole-job elapsed-time objective is explicit, while throughput level and variability are excluded from selection."
+    },
+    {
+      "id": "T036",
+      "group": "distractor",
+      "text": "In the fleet-telemetry test, device IOPS and request latency are troubleshooting counters. Reduce throughput CV as the tuning goal: standard deviation divided by mean throughput, sampled in fixed one-second windows. Maintain synchronous durability and keep write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "stability",
+        "metric": "throughput_cv",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "Reduce throughput CV as the tuning goal: standard deviation divided by mean throughput, sampled in fixed one-second windows",
+        "reason": "Minimize throughput CV."
+      },
+      "rationale": "The goal fully specifies throughput CV; the storage and latency counters cannot supply competing objectives."
+    },
+    {
+      "id": "T037",
+      "group": "constrained",
+      "text": "For the digital-coupon ledger, maximize completed transactions per second. Admit a candidate only if p99 response latency is at most 40 ms and every commit finishes within 0.25 s. Those are hard limits, not additional objectives. Preserve synchronous durability and enabled write barriers.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "tps",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p99_max_ms": 40,
+          "commit_max_s": 0.25
+        },
+        "evidence": "maximize completed transactions per second",
+        "reason": "Maximize transaction rate within bounds."
+      },
+      "rationale": "The maximizing transaction-rate objective is distinct from explicit p99 and commit-time upper bounds."
+    },
+    {
+      "id": "T038",
+      "group": "constrained",
+      "text": "Synchronous durability and enabled write barriers are required for the media-rights lookup store. Maximize operations per second, subject to p95 response latency no greater than 0.020 s. Treat that percentile ceiling solely as a feasibility requirement.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "ops_s",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p95_max_ms": 20
+        },
+        "evidence": "Maximize operations per second",
+        "reason": "Maximize operation rate within p95 bound."
+      },
+      "rationale": "Operations per second is the objective; the explicit 0.020-second p95 bound converts exactly to 20 milliseconds."
+    },
+    {
+      "id": "T039",
+      "group": "constrained",
+      "text": "The bus-arrival API must sustain at least 2400 requests per second. Among candidates meeting that floor, minimize p95 request latency in milliseconds. Each commit must take at most 150 ms. Retain synchronous durability and leave write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p95_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 2400,
+          "commit_max_s": 0.15
+        },
+        "evidence": "minimize p95 request latency in milliseconds",
+        "reason": "Minimize p95 within hard limits."
+      },
+      "rationale": "The request-rate floor and commit ceiling constrain a p95 objective; 150 milliseconds converts exactly to 0.15 seconds."
+    },
+    {
+      "id": "T040",
+      "group": "constrained",
+      "text": "Keep synchronous durability enabled and write barriers on for the reservation-status service. The objective is the lowest p99 response latency in ms. Require at least 1800 completed transactions per second and a throughput CV of at most 0.12, using standard deviation divided by mean throughput in fixed one-second windows.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p99_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 1800,
+          "cv_max": 0.12
+        },
+        "evidence": "the lowest p99 response latency in ms",
+        "reason": "Minimize p99 within rate and CV bounds."
+      },
+      "rationale": "The transaction-rate floor and fully defined CV ceiling are hard requirements, while p99 latency is minimized."
+    },
+    {
+      "id": "T041",
+      "group": "constrained",
+      "text": "For the fixed municipal-record import, shorten total completion time measured in seconds. A candidate is feasible only when each commit takes no more than 200 ms and p95 request latency stays at or below 35 ms. Require synchronous durability with write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "completion_time",
+        "metric": "completion_s",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "commit_max_s": 0.2,
+          "p95_max_ms": 35
+        },
+        "evidence": "shorten total completion time measured in seconds",
+        "reason": "Minimize import time within latency bounds."
+      },
+      "rationale": "Whole-import time is minimized; the 200-millisecond commit bound becomes 0.2 seconds and the p95 ceiling remains 35 milliseconds."
+    },
+    {
+      "id": "T042",
+      "group": "constrained",
+      "text": "The payment-event stream must process at least 5000 operations per second and keep p99 response latency at most 60 ms. Within those hard bounds, minimize throughput CV, defined as standard deviation divided by mean throughput in fixed one-second windows. Maintain synchronous durability and enabled write barriers.",
+      "gold": {
+        "status": "resolved",
+        "category": "stability",
+        "metric": "throughput_cv",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 5000,
+          "p99_max_ms": 60
+        },
+        "evidence": "minimize throughput CV, defined as standard deviation divided by mean throughput in fixed one-second windows",
+        "reason": "Minimize CV within hard bounds."
+      },
+      "rationale": "The throughput floor and p99 ceiling are feasibility limits on the explicitly defined CV minimization objective."
+    },
+    {
+      "id": "T043",
+      "group": "constrained",
+      "text": "Tune the clinical-audit ledger for the largest completed transaction count per second. Enforce p95 latency of at most 18 ms, p99 latency of at most 75 ms, and a per-commit limit of 0.4 s. All three are admission limits. Synchronous durability and enabled write barriers are mandatory.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "tps",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p95_max_ms": 18,
+          "p99_max_ms": 75,
+          "commit_max_s": 0.4
+        },
+        "evidence": "the largest completed transaction count per second",
+        "reason": "Maximize transaction rate subject to limits."
+      },
+      "rationale": "Both percentile ceilings and the commit ceiling are explicit constraints rather than independent optimization targets."
+    },
+    {
+      "id": "T044",
+      "group": "constrained",
+      "text": "For the software-license service, keep write barriers enabled and durability synchronous. Prefer the highest requests-per-second rate. Reject candidates whose throughput CV exceeds 0.08, where CV is standard deviation divided by mean throughput in fixed one-second windows, or whose commits take more than 0.1 s.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "ops_s",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "cv_max": 0.08,
+          "commit_max_s": 0.1
+        },
+        "evidence": "the highest requests-per-second rate",
+        "reason": "Maximize request rate within CV and commit bounds."
+      },
+      "rationale": "A rejection threshold supplies a CV upper bound and a commit upper bound; request rate remains the sole objective."
+    },
+    {
+      "id": "T045",
+      "group": "constrained",
+      "text": "Minimize p95 latency in milliseconds for the rail-seat lookup replay, while sustaining no fewer than 900 requests per second. The p99 latency ceiling is 0.09 s and must be treated as a hard limit. Preserve synchronous durability and keep write barriers on.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p95_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 900,
+          "p99_max_ms": 90
+        },
+        "evidence": "Minimize p95 latency in milliseconds",
+        "reason": "Minimize p95 within rate and p99 limits."
+      },
+      "rationale": "The operator minimizes p95 subject to a request-rate floor and a p99 ceiling; 0.09 seconds equals 90 milliseconds."
+    },
+    {
+      "id": "T046",
+      "group": "constrained",
+      "text": "The customer-consent store requires synchronous durability and enabled write barriers. Reduce p99 request latency, measured in milliseconds. Feasibility also requires p95 latency at most 12 ms and at least 3200 operations per second; neither bound is a second ranking objective.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p99_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p95_max_ms": 12,
+          "throughput_min": 3200
+        },
+        "evidence": "Reduce p99 request latency, measured in milliseconds",
+        "reason": "Minimize p99 within stated bounds."
+      },
+      "rationale": "The p95 cap and operations-rate floor constrain the sole p99-latency objective."
+    },
+    {
+      "id": "T047",
+      "group": "constrained",
+      "text": "Choose the shortest completion time in seconds for the fixed ocean-model checkpoint merge. Require commits to finish within 0.5 s and throughput CV to remain at or below 0.20, defined from standard deviation divided by mean throughput in fixed one-second windows. Maintain synchronous durability with write barriers enabled.",
+      "gold": {
+        "status": "resolved",
+        "category": "completion_time",
+        "metric": "completion_s",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "commit_max_s": 0.5,
+          "cv_max": 0.2
+        },
+        "evidence": "the shortest completion time in seconds",
+        "reason": "Minimize merge time within hard bounds."
+      },
+      "rationale": "The completion-time objective is separate from a commit ceiling and an explicitly defined CV ceiling."
+    },
+    {
+      "id": "T048",
+      "group": "constrained",
+      "text": "For the shipping-scan event stream, require synchronous durability and enabled write barriers. Minimize the standard deviation divided by the mean of throughput in fixed one-second windows. A feasible setting must deliver at least 1250 completed transactions per second, keep p95 latency at most 22 ms, and finish every commit within 80 ms.",
+      "gold": {
+        "status": "resolved",
+        "category": "stability",
+        "metric": "throughput_cv",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 1250,
+          "p95_max_ms": 22,
+          "commit_max_s": 0.08
+        },
+        "evidence": "Minimize the standard deviation divided by the mean of throughput in fixed one-second windows",
+        "reason": "Minimize CV subject to all bounds."
+      },
+      "rationale": "The defined CV objective has transaction-rate and latency constraints; the explicit 80-millisecond commit cap converts to 0.08 seconds."
+    },
+    {
+      "id": "T049",
+      "group": "insufficient",
+      "text": "This experiment replays the fixed hotel-booking workload against the new storage layout. The report already contains completed transactions per second, request percentiles, and device IOPS. Keep synchronous durability and write barriers enabled. We have not selected a statistic for ranking configurations.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "We have not selected a statistic for ranking configurations",
+        "reason": "No ranking objective is specified."
+      },
+      "rationale": "A workload name and measured counters provide no selected optimization objective."
+    },
+    {
+      "id": "T050",
+      "group": "insufficient",
+      "text": "Make tail latency lower for the mobile-profile service, measured in milliseconds. The percentile to optimize has not been chosen yet. Retain synchronous durability and enabled write barriers, and require at least 700 requests per second.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 700
+        },
+        "evidence": "The percentile to optimize has not been chosen yet",
+        "reason": "Latency percentile is unspecified."
+      },
+      "rationale": "An unspecified tail percentile cannot be mapped to p95 or p99; the explicit request-rate floor remains a constraint."
+    },
+    {
+      "id": "T051",
+      "group": "insufficient",
+      "text": "Our goal for the restaurant-menu endpoint is the lowest arithmetic mean response latency in milliseconds across all requests. This is explicitly the mean, not a percentile. Keep synchronous durability active and write barriers enabled; every commit must finish within 0.3 s.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "commit_max_s": 0.3
+        },
+        "evidence": "the lowest arithmetic mean response latency in milliseconds across all requests",
+        "reason": "Mean latency is unsupported."
+      },
+      "rationale": "Mean request latency is not one of the six supported objective metrics; the commit upper bound is still preserved."
+    },
+    {
+      "id": "T052",
+      "group": "insufficient",
+      "text": "For the satellite-image transfer store, maximize payload bytes delivered per second. Different requests carry different amounts of data, and the byte rate is the only score. Preserve synchronous durability and leave write barriers enabled. Require p99 response latency at or below 150 ms.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p99_max_ms": 150
+        },
+        "evidence": "maximize payload bytes delivered per second",
+        "reason": "Byte throughput is unsupported."
+      },
+      "rationale": "A byte-volume rate is not the supported completed-transaction or operation count rate; the p99 ceiling is a constraint."
+    },
+    {
+      "id": "T053",
+      "group": "insufficient",
+      "text": "Select the parcel-label configuration with the fewest joules consumed per completed transaction. That energy ratio is the sole optimization target. Synchronous durability and enabled write barriers are mandatory. The service must still sustain at least 600 completed transactions per second.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 600
+        },
+        "evidence": "the fewest joules consumed per completed transaction",
+        "reason": "Energy per transaction is unsupported."
+      },
+      "rationale": "Energy per transaction is unsupported, and a transaction-rate feasibility floor does not become an objective."
+    },
+    {
+      "id": "T054",
+      "group": "insufficient",
+      "text": "Minimize the 90th-percentile request latency in milliseconds for the visitor-badge directory. Use exactly that percentile for ranking. Maintain synchronous durability and write barriers in the enabled state; p99 latency must also stay at or below 70 ms as a hard limit.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p99_max_ms": 70
+        },
+        "evidence": "Minimize the 90th-percentile request latency in milliseconds",
+        "reason": "The requested percentile is unsupported."
+      },
+      "rationale": "The selected 90th percentile is unsupported; the supported p99 value is only a feasibility constraint."
+    },
+    {
+      "id": "T055",
+      "group": "insufficient",
+      "text": "Please improve overall performance of the irrigation-control record store. Keep synchronous durability in force and write barriers enabled. Commits may take at most 0.2 s, and p95 response latency may be no greater than 25 ms. The operator has supplied no preference among feasible configurations.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "commit_max_s": 0.2,
+          "p95_max_ms": 25
+        },
+        "evidence": "The operator has supplied no preference among feasible configurations",
+        "reason": "Only feasibility limits are specified."
+      },
+      "rationale": "A generic performance request plus hard bounds does not identify a ranking objective."
+    },
+    {
+      "id": "T056",
+      "group": "insufficient",
+      "text": "The train-position stream should minimize the raw standard deviation of throughput measured in fixed one-second windows. Do not divide by the mean; absolute dispersion is the intended score. Require synchronous durability and enabled write barriers, with at least 1500 operations per second as a hard floor.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 1500
+        },
+        "evidence": "minimize the raw standard deviation of throughput measured in fixed one-second windows",
+        "reason": "Raw throughput deviation is unsupported."
+      },
+      "rationale": "Raw standard deviation is not the supported standard-deviation-to-mean ratio; the text expressly rules out that normalization."
+    },
+    {
+      "id": "T057",
+      "group": "insufficient",
+      "text": "Collect p95 and p99 request latencies in milliseconds and total job duration in seconds for the fixed election-record import. We will decide later which statistic should be optimized. For now, preserve synchronous durability and keep write barriers enabled, with each commit capped at 0.6 s.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "commit_max_s": 0.6
+        },
+        "evidence": "We will decide later which statistic should be optimized",
+        "reason": "Objective selection is deferred."
+      },
+      "rationale": "The operator requests measurements while deferring objective selection; no collected metric should be promoted to a goal."
+    },
+    {
+      "id": "T058",
+      "group": "insufficient",
+      "text": "For the cold-chain tracking API, reduce a high percentile of response latency in milliseconds. The specification does not identify which percentile. Synchronous durability and enabled write barriers must remain active. Keep the throughput coefficient of variation at most 0.15, using standard deviation divided by mean throughput in fixed one-second windows.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "cv_max": 0.15
+        },
+        "evidence": "The specification does not identify which percentile",
+        "reason": "Latency percentile is unspecified."
+      },
+      "rationale": "The latency objective lacks a supported quantile; the precisely defined CV upper bound remains only a constraint."
+    },
+    {
+      "id": "T059",
+      "group": "insufficient",
+      "text": "The vector-index replay currently records disk IOPS, queue depth, p99 latency, and cache misses. These readings are diagnostic only, and no winning criterion has been assigned. Keep synchronous durability active and write barriers enabled. The p95 latency admission ceiling is 0.030 s.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p95_max_ms": 30
+        },
+        "evidence": "no winning criterion has been assigned",
+        "reason": "No optimization criterion is assigned."
+      },
+      "rationale": "Diagnostic counters do not define an objective; the explicit 0.030-second p95 bound converts exactly to 30 milliseconds."
+    },
+    {
+      "id": "T060",
+      "group": "insufficient",
+      "text": "For the wildlife-sensor archive, maximize the fraction of incoming requests that succeed without retry. That success fraction is the sole score; do not rank by request rate. Preserve synchronous durability with write barriers enabled and enforce a p99 latency limit of 100 ms.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p99_max_ms": 100
+        },
+        "evidence": "maximize the fraction of incoming requests that succeed without retry",
+        "reason": "Request success fraction is unsupported."
+      },
+      "rationale": "A request-success fraction is unsupported, and the p99 bound does not supply a replacement objective."
+    },
+    {
+      "id": "T061",
+      "group": "conflict_priority",
+      "text": "For the transit-fare ledger, maximize completed transactions per second and minimize p99 response latency in milliseconds. These objectives have equal priority, and no tie-breaking rule or combined score is provided. Keep synchronous durability and write barriers enabled; each commit must finish within 0.25 s.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "commit_max_s": 0.25
+        },
+        "evidence": "These objectives have equal priority, and no tie-breaking rule or combined score is provided",
+        "reason": "Equal-priority objectives are unresolved."
+      },
+      "rationale": "Two supported targets have explicitly equal priority, so the single-objective contract cannot choose one; the commit cap is preserved."
+    },
+    {
+      "id": "T062",
+      "group": "conflict_priority",
+      "text": "The translation-memory service must reduce both p95 and p99 request latency, each measured in milliseconds. Give the two percentile objectives exactly equal weight; neither takes precedence. Retain synchronous durability and enabled write barriers, and sustain at least 1100 requests per second.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 1100
+        },
+        "evidence": "Give the two percentile objectives exactly equal weight; neither takes precedence",
+        "reason": "No primary percentile is selected."
+      },
+      "rationale": "Even within one category, p95 and p99 are different metric bindings and no primary metric is selected."
+    },
+    {
+      "id": "T063",
+      "group": "conflict_priority",
+      "text": "For the fixed astronomy-catalog rebuild, seek the shortest total completion time in seconds and the lowest throughput CV. CV means standard deviation divided by mean throughput in fixed one-second windows. Both goals are equally important, with no priority order. Require synchronous durability and enabled write barriers.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on"
+        },
+        "evidence": "Both goals are equally important, with no priority order",
+        "reason": "Completion and CV goals have equal priority."
+      },
+      "rationale": "Completion time and fully defined throughput CV are equally prioritized supported objectives."
+    },
+    {
+      "id": "T064",
+      "group": "conflict_priority",
+      "text": "The fixed contract-search replay should maximize operations per second and minimize its full completion time in seconds. Treat those as equal-priority targets, even if the measured run overhead causes their rankings to differ. Preserve synchronous durability and write barriers enabled. Keep p95 latency at or below 45 ms.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p95_max_ms": 45
+        },
+        "evidence": "Treat those as equal-priority targets",
+        "reason": "Rate and completion objectives are tied."
+      },
+      "rationale": "The request names two equally prioritized metrics; possible correlation does not authorize choosing a single binding."
+    },
+    {
+      "id": "T065",
+      "group": "conflict_priority",
+      "text": "The mixed benefits workload counts completed enrollment transactions separately from individual lookup operations. Maximize completed transactions per second and maximize lookup operations per second with exactly the same priority; no preferred metric is given. Keep synchronous durability and enabled write barriers, with commits taking at most 0.35 s.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "commit_max_s": 0.35
+        },
+        "evidence": "with exactly the same priority; no preferred metric is given",
+        "reason": "Two throughput metrics have equal priority."
+      },
+      "rationale": "Distinct transaction and operation count objectives share a category but have different metric bindings and equal priority."
+    },
+    {
+      "id": "T066",
+      "group": "conflict_priority",
+      "text": "We want both minimum p99 request latency in milliseconds and minimum throughput CV for the smart-meter stream. Define CV as standard deviation divided by mean throughput in fixed one-second windows. Neither goal outranks the other. Require synchronous durability and enabled write barriers, and maintain at least 2000 operations per second.",
+      "gold": {
+        "status": "abstain",
+        "category": null,
+        "metric": null,
+        "direction": null,
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 2000
+        },
+        "evidence": "Neither goal outranks the other",
+        "reason": "Latency and CV goals are equally ranked."
+      },
+      "rationale": "The operator provides no priority between latency and throughput variability; the operations-rate floor stays a constraint."
+    },
+    {
+      "id": "T067",
+      "group": "conflict_priority",
+      "text": "The cooperative-loan ledger used to select the lowest p99 latency. Replace that objective: the primary goal is now maximum completed transactions per second. Lower p99 latency is a secondary preference only. Retain synchronous durability and enabled write barriers; p99 must remain at or below 80 ms as a hard bound.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "tps",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p99_max_ms": 80
+        },
+        "evidence": "the primary goal is now maximum completed transactions per second",
+        "reason": "Explicit primary target is transaction rate."
+      },
+      "rationale": "An explicit correction establishes transaction throughput as primary; the p99 ceiling is preserved independently of its secondary role."
+    },
+    {
+      "id": "T068",
+      "group": "conflict_priority",
+      "text": "For the audiobook-catalog service, minimizing the replay's total duration is desirable, but subordinate. First and foremost, maximize requests per second; that is the primary tuning metric. Synchronous durability and enabled write barriers are mandatory, and every commit must finish within 120 ms.",
+      "gold": {
+        "status": "resolved",
+        "category": "throughput",
+        "metric": "ops_s",
+        "direction": "max",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "commit_max_s": 0.12
+        },
+        "evidence": "maximize requests per second; that is the primary tuning metric",
+        "reason": "Request rate is explicitly primary."
+      },
+      "rationale": "The explicit primary request-rate objective overrides a subordinate duration preference; 120 milliseconds converts to a 0.12-second commit bound."
+    },
+    {
+      "id": "T069",
+      "group": "conflict_priority",
+      "text": "At the public-library lookup service, our first draft proposed p99 optimization. Correction: minimize p95 response latency in milliseconds as the primary objective. We may examine p99 after selecting by p95. Preserve synchronous durability with write barriers enabled and require at least 850 requests per second.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p95_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 850
+        },
+        "evidence": "minimize p95 response latency in milliseconds as the primary objective",
+        "reason": "Corrected primary objective is p95."
+      },
+      "rationale": "The correction and explicit primary designation supersede the earlier p99 proposal; the rate floor remains a constraint."
+    },
+    {
+      "id": "T070",
+      "group": "conflict_priority",
+      "text": "For the air-cargo status endpoint, maximize operation rate only as a secondary preference. The primary optimization target is minimum p99 response latency in milliseconds. Require synchronous durability and enabled write barriers, and reject configurations with p95 latency above 28 ms.",
+      "gold": {
+        "status": "resolved",
+        "category": "tail_latency",
+        "metric": "p99_ms",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "p95_max_ms": 28
+        },
+        "evidence": "The primary optimization target is minimum p99 response latency in milliseconds",
+        "reason": "p99 latency is explicitly primary."
+      },
+      "rationale": "Primary p99 minimization wins over a clearly secondary operation-rate preference; the p95 rejection threshold is an upper bound."
+    },
+    {
+      "id": "T071",
+      "group": "conflict_priority",
+      "text": "The fixed archaeological-image index build should finish sooner, and smoother throughput would also help. Make the total completion time in seconds the primary metric to minimize; throughput CV is secondary. Define CV from standard deviation divided by mean throughput in fixed one-second windows. Preserve synchronous durability and enabled write barriers, with a commit ceiling of 0.45 s.",
+      "gold": {
+        "status": "resolved",
+        "category": "completion_time",
+        "metric": "completion_s",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "commit_max_s": 0.45
+        },
+        "evidence": "the total completion time in seconds the primary metric to minimize",
+        "reason": "Completion time is the primary metric."
+      },
+      "rationale": "The explicit whole-job primary metric resolves the competing smoothness preference; the commit ceiling is preserved."
+    },
+    {
+      "id": "T072",
+      "group": "conflict_priority",
+      "text": "The food-delivery event ledger formerly ranked configurations by completed transactions per second. Change the primary target to minimizing throughput CV: standard deviation divided by mean throughput in fixed one-second windows. Transaction rate is now secondary, with a hard minimum of 1400 completed transactions per second. Maintain synchronous durability and enabled write barriers.",
+      "gold": {
+        "status": "resolved",
+        "category": "stability",
+        "metric": "throughput_cv",
+        "direction": "min",
+        "constraints": {
+          "durability": "sync",
+          "barriers": "on",
+          "throughput_min": 1400
+        },
+        "evidence": "Change the primary target to minimizing throughput CV: standard deviation divided by mean throughput in fixed one-second windows",
+        "reason": "Updated primary objective is throughput CV."
+      },
+      "rationale": "An explicit primary-objective change selects CV; the secondary transaction-rate goal also supplies a distinct hard floor."
+    }
+  ]
+}
